@@ -6,7 +6,6 @@ import AuthorsCard from "../shared/AuthorsCard";
 
 const Authors = () => {
     const { data, loading, error } = useQuery(GET_AUTHORS_INFO);
-    console.log({ data, loading, error })
     return(
         <>
             {

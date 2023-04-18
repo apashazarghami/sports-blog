@@ -15,7 +15,7 @@ const Blogs = () => {
                 error && <h3 style={{color: "red"}}>{`${error.message}, Try again`}</h3>
             }
             {
-                data && data.posts.map(post => <Grid key={post.id} item xs={12} sm={6} lg={4}>
+                data && data.posts.map(post => <Grid key={post.id} item xs={12} sm={6} md={4}>
                     <BlogsCard {...post} />
                 </Grid>)
             }
