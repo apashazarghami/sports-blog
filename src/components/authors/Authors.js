@@ -3,13 +3,14 @@ import { useQuery } from "@apollo/client";
 import { GET_AUTHORS_INFO } from "../../graphql/queries";
 import { Card } from "@mui/material";
 import AuthorsCard from "../shared/AuthorsCard";
+import Loader from "../shared/Loader";
 
 const Authors = () => {
     const { data, loading, error } = useQuery(GET_AUTHORS_INFO);
     return(
         <>
             {
-                loading && <h3>Loading ...</h3>
+                loading && <Loader />
             }
             {
                 error && <h3 style={{color: "red"}}>{`${error.message}, Try again`}</h3>

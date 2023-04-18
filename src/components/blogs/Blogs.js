@@ -3,13 +3,14 @@ import { Grid } from "@mui/material";
 import { useQuery } from "@apollo/client";
 import { GET_BLOGS_INFO } from "../../graphql/queries";
 import BlogsCard from "../shared/BlogsCard";
+import Loader from "../shared/Loader";
 
 const Blogs = () => {
     const { loading, data, error } = useQuery(GET_BLOGS_INFO);
     return(
         <Grid container spacing={2}>
             {
-                loading && <h3>Loading ...</h3>
+                loading && <Loader />
             }
             {
                 error && <h3 style={{color: "red"}}>{`${error.message}, Try again`}</h3>
