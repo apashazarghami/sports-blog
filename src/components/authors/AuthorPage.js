@@ -20,19 +20,19 @@ const AuthorPage = () => {
             }
             {
                 data &&
-                    <Grid container mt={10}>
+                    <Grid container mt={9} px={3}>
                         <Grid item xs={12} display="flex" justifyContent="center">
                             <Avatar src={data.author.avatar.url} alt={data.author.name} sx={{width:250, height:250}} />
                         </Grid>
-                        <Grid item xs={12}>
-                            <Typography component="h3" variant="h5" fontWeight="700" textAlign="center" mt={4}>
+                        <Grid item xs={12} mt={4}>
+                            <Typography component="h3" variant="h5" fontWeight="700" textAlign="center">
                                 {data.author.name}
                             </Typography>
                             <Typography component="p" variant="h5" textAlign="center" color="text.secondary" mt={2}>
                                 {data.author.field}
                             </Typography>
-                            <Grid item xs={12}>
-                                <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(data.author.description.html) }} style={{marginTop:40, textAlign:"justify", lineHeight:3}}></div>
+                            <Grid item xs={12} mt={6}>
+                                <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(data.author.description.html) }} style={{textAlign:"justify", lineHeight:3}}></div>
                             </Grid>
                         </Grid>
                         <Grid item xs={12} mt={6}>

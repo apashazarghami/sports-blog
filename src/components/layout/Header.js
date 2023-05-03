@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AppBar, Toolbar, Container, Typography } from "@mui/material";
-import { Book } from "@mui/icons-material";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const Header = () => {
+    const navigate = useNavigate();
     return(
         <AppBar position="sticky">
             <Container maxWidth="lg">
@@ -13,9 +14,7 @@ const Header = () => {
                             وبلاگ ورزشی
                         </Typography>
                     </Link>
-                    <Link to="/" style={{color:"#ffffff"}}>
-                        <Book />
-                    </Link>
+                    <ArrowBackIcon onClick={() => navigate(-1)} style={{cursor:"pointer"}} />
                 </Toolbar>
             </Container>
         </AppBar>

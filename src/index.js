@@ -8,16 +8,20 @@ import theme from './mui/theme';
 import "./styles/Index.css";
 import "./styles/FontFace.css";
 import { BrowserRouter } from 'react-router-dom';
+import { CacheProvider } from "@emotion/react";
+import cacheRtl from './mui/cacheRtl';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ApolloProvider client={client}>
-        <ThemeProvider theme={theme}>
-          <App />
-        </ThemeProvider>
-      </ApolloProvider>
+      <CacheProvider value={cacheRtl}>
+        <ApolloProvider client={client}>
+          <ThemeProvider theme={theme}>
+            <App />
+          </ThemeProvider>
+        </ApolloProvider>
+      </CacheProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

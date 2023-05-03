@@ -2,7 +2,7 @@ import HomePage from "./components/Home/HomePage";
 import AuthorPage from "./components/authors/AuthorPage";
 import BlogPage from "./components/blogs/BlogPage";
 import Layout from "./components/layout/Layout";
-import { Routes, Route } from "react-router-dom"; 
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
