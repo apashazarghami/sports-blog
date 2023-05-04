@@ -5,12 +5,12 @@ import { GET_BLOG_INFO } from "../../graphql/queries";
 import Loader from "../shared/Loader";
 import sanitizeHtml from "sanitize-html";
 import { Avatar, Box, Container, Grid, Typography } from "@mui/material";
-import Comment from "../comments/Comment";
+import CommentForm from "../comments/CommentForm";
 
 const BlogPage = () => {
     const { slug } = useParams();
     const { loading, data, error } = useQuery(GET_BLOG_INFO, { variables: { slug } });
-    console.log({ loading, data, error });
+    // console.log({ loading, data, error });
     return(
         <Container maxWidth="lg">
             {
@@ -44,7 +44,7 @@ const BlogPage = () => {
                         </Box>
                     </Grid>
                     <Grid item xs={12} mt={6}>
-                        <Comment />
+                        <CommentForm slug={slug} />
                     </Grid>
                 </Grid>
             }
