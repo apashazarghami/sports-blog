@@ -77,4 +77,14 @@ const GET_BLOG_INFO = gql`
     }
 `
 
-export { GET_BLOGS_INFO, GET_AUTHORS_INFO, GET_AUTHOR_INFO, GET_BLOG_INFO };
+const GET_COMMENTS = gql`
+    query getComments($slug: String!) {
+        comments(where: { post: { slug: $slug } }) {
+            comment
+            name
+            id
+        }
+    }
+`
+
+export { GET_BLOGS_INFO, GET_AUTHORS_INFO, GET_AUTHOR_INFO, GET_BLOG_INFO, GET_COMMENTS };

@@ -17,7 +17,6 @@ const CommentForm = ({ slug }) => {
             slug
         }
     });
-    console.log(data);
 
     const sendCommentHandler = () => {
         if(name && email && comment) {

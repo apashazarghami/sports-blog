@@ -6,11 +6,11 @@ import Loader from "../shared/Loader";
 import sanitizeHtml from "sanitize-html";
 import { Avatar, Box, Container, Grid, Typography } from "@mui/material";
 import CommentForm from "../comments/CommentForm";
+import Comments from "../comments/Comments";
 
 const BlogPage = () => {
     const { slug } = useParams();
     const { loading, data, error } = useQuery(GET_BLOG_INFO, { variables: { slug } });
-    // console.log({ loading, data, error });
     return(
         <Container maxWidth="lg">
             {
@@ -45,6 +45,18 @@ const BlogPage = () => {
                     </Grid>
                     <Grid item xs={12} mt={6}>
                         <CommentForm slug={slug} />
+                    </Grid>
+                    <Grid item xs={12} mt={6}>
+                        <Grid container boxShadow="rgba(0,0,0,0.1) 0px 4px 12px" borderRadius={4} p={4}>
+                            <Container maxWidth="lg">
+                                <Grid item xs={12}>
+                                    <Typography component="p" variant="h6" fontWeight="700" color="primary">
+                                        نظرات
+                                    </Typography>
+                                </Grid>
+                                <Comments slug={slug} />
+                            </Container>
+                        </Grid>
                     </Grid>
                 </Grid>
             }

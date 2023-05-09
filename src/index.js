@@ -13,7 +13,7 @@ import cacheRtl from './mui/cacheRtl';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  
     <BrowserRouter>
       <CacheProvider value={cacheRtl}>
         <ApolloProvider client={client}>
@@ -23,5 +23,5 @@ root.render(
         </ApolloProvider>
       </CacheProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  
 );
