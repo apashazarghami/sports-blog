@@ -9,6 +9,7 @@ const CommentForm = ({ slug }) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [comment, setComment] = useState("");
+    const [isPressed, setIsPressed] = useState(false);
     const [sendComment, { loading, data }] = useMutation(SEND_COMMENT, {
         variables: {
             name,
@@ -21,6 +22,7 @@ const CommentForm = ({ slug }) => {
     const sendCommentHandler = () => {
         if(name && email && comment) {
             sendComment();
+            setIsPressed(true);
         } else {
             toast.warn("لطفا تمام گزینه های خالی را کامل کنید");
         }
@@ -29,8 +31,9 @@ const CommentForm = ({ slug }) => {
         setComment("");
     }
 
-    if(data) {
+    if(data && isPressed) {
         toast.success("نظر شما ارسال شد، منتظر تایید می باشد");
+        setIsPressed(false);
     }
 
     return(

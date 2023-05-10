@@ -13,15 +13,13 @@ import cacheRtl from './mui/cacheRtl';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  
-    <BrowserRouter>
-      <CacheProvider value={cacheRtl}>
-        <ApolloProvider client={client}>
-          <ThemeProvider theme={theme}>
-            <App />
-          </ThemeProvider>
-        </ApolloProvider>
-      </CacheProvider>
-    </BrowserRouter>
-  
+  <BrowserRouter>
+    <CacheProvider value={cacheRtl}>
+      <ApolloProvider client={client}>
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
+      </ApolloProvider>
+    </CacheProvider>
+  </BrowserRouter>  
 );

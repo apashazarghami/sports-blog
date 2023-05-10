@@ -16,7 +16,7 @@ const Authors = () => {
                 error && <h3 style={{color: "red"}}>{`${error.message}, Try again`}</h3>
             }
             {
-                data && <Card sx={{marginTop:5, boxShadow:"rgba(0,0,0,0.1) 0px 4px 12px", borderRadius:4}}>
+                data && <Card sx={{boxShadow:"rgba(0,0,0,0.1) 0px 4px 12px", borderRadius:4}}>
                     {
                         data.authors.map((author, index) => <AuthorsCard key={author.id} {...author} length={data.authors.length} index={index} />)
                     }
