@@ -4,6 +4,7 @@ import { useMutation } from "@apollo/client";
 import { SEND_COMMENT } from "../../graphql/mutations";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { validateEmail, validateText } from "../../helper/functions";
 
 const CommentForm = ({ slug }) => {
     const [name, setName] = useState("");
@@ -20,11 +21,30 @@ const CommentForm = ({ slug }) => {
     });
 
     const sendCommentHandler = () => {
-        if(name && email && comment) {
+        if(!validateText(name, 2) && validateEmail(email) && validateText(comment, 3)) {
+            toast.warn("لطفا نام کربری معتبر وارد کنید");
+        }
+        if(validateText(name, 2) && !validateEmail(email) && validateText(comment, 3)) {
+            toast.warn("لطفا ایمیل معتبر وارد کنید");
+        }
+        if(validateText(name, 2) && validateEmail(email) && !validateText(comment, 3)) {
+            toast.warn("لطفا نظر خود را کامل وارد کنید");
+        }
+        if(!validateText(name, 2) && !validateEmail(email) && validateText(comment, 3)) {
+            toast.warn("لطفا نام کربری و ایمیل معتبر وارد کنید");
+        }
+        if(!validateText(name, 2) && validateEmail(email) && !validateText(comment, 3)) {
+            toast.warn("لطفا نام کربری و نظر معتبر وارد کنید");
+        }
+        if(validateText(name, 2) && !validateEmail(email) && !validateText(comment, 3)) {
+            toast.warn("لطفا ایمیل و نظر معتبر وارد کنید");
+        }
+        if(!validateText(name, 2) && !validateEmail(email) && !validateText(comment, 3)) {
+            toast.warn("لطفا تمام گزینه ها را به درستی وارد کنید");
+        }
+        if(validateText(name, 2) && validateEmail(email) && validateText(comment, 3)) {
             sendComment();
             setIsPressed(true);
-        } else {
-            toast.warn("لطفا تمام گزینه های خالی را کامل کنید");
         }
         setName("");
         setEmail("");
