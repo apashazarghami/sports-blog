@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const HomePage = () => {
     return(
         <Container maxWidth="lg">
-            <Grid container spacing={2} padding={3}>
+            <Grid container spacing={2} p={3}>
                 <Grid item xs={12} md={3} mt={4}>
                     <Link to="/authors" style={{textDecoration: "none", color:"rgba(0,0,0,0.87)"}}>
                         <Typography component="h3" variant="h5" fontWeight="700" display="inline-block" mb={5}>

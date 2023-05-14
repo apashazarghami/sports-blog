@@ -2,11 +2,12 @@ import React from "react";
 import { Avatar, Box, Grid, Typography } from "@mui/material";
 import { useQuery } from "@apollo/client";
 import { GET_COMMENTS } from "../../graphql/queries";
+import Error from "../shared/Error";
 
 const Comments = ({ slug }) => {
     const { loading, data, error } = useQuery(GET_COMMENTS, { variables: { slug } });
     if (loading) return null;
-    if (error) return <Typography component="p" variant="p" fontWeight={500}>{error.message}</Typography>
+    if (error) return <Error />
     if (data) {
         if (data.comments.length) {
             return(

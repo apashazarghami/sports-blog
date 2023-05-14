@@ -2,8 +2,9 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import { GET_AUTHORS_INFO } from "../../graphql/queries";
 import Loader from "../shared/Loader";
-import { Container, Typography, Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import AuthorsCardInfo from "../shared/AuthorsCardInfo";
+import Error from "../shared/Error";
 
 const AuthorPageInfo = () => {
     const { loading, data, error } = useQuery(GET_AUTHORS_INFO);
@@ -13,7 +14,7 @@ const AuthorPageInfo = () => {
                 loading && <Loader />
             }
             {
-                error && <Typography component="h3" variant="h6" fontWeight={700}>{error.message}</Typography>
+                error && <Error />
             }
             <Grid container spacing={3} p={4}>
                 {

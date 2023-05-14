@@ -7,6 +7,7 @@ import sanitizeHtml from "sanitize-html";
 import { Avatar, Box, Container, Grid, Typography } from "@mui/material";
 import CommentForm from "../comments/CommentForm";
 import Comments from "../comments/Comments";
+import Error from "../shared/Error";
 
 const BlogPage = () => {
     const { slug } = useParams();
@@ -17,7 +18,7 @@ const BlogPage = () => {
                 loading && <Loader />
             }
             {
-                error && <h3>{error.message}</h3>
+                error && <Error />
             }
             {
                 data && <Grid container mt={9} px={3}>

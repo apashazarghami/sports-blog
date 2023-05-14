@@ -6,6 +6,7 @@ import { Grid, Container, Avatar, Typography } from "@mui/material";
 import sanitizeHtml from "sanitize-html";
 import BlogsCard from "../shared/BlogsCard";
 import Loader from "../shared/Loader";
+import Error from "../shared/Error";
 
 const AuthorPage = () => {
     const { slug } = useParams();
@@ -16,7 +17,7 @@ const AuthorPage = () => {
                 loading && <Loader />
             }
             {
-                error && <h3>{error.message}</h3>
+                error && <Error />
             }
             {
                 data &&

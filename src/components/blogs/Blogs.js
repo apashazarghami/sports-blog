@@ -4,16 +4,18 @@ import { useQuery } from "@apollo/client";
 import { GET_BLOGS_INFO } from "../../graphql/queries";
 import BlogsCard from "../shared/BlogsCard";
 import Loader from "../shared/Loader";
+import Error from "../shared/Error";
 
 const Blogs = () => {
     const { loading, data, error } = useQuery(GET_BLOGS_INFO);
+    console.log(error)
     return(
         <Grid container spacing={2}>
             {
-                loading && <Loader />
+                loading && <div style={{margin:"1rem auto 0 auto", }}><Loader /></div>
             }
             {
-                error && <h3 style={{color: "red"}}>{`${error.message}, Try again`}</h3>
+                error && <div style={{marginTop: "1rem", paddingRight:"1rem"}}><Error /></div>
             }
             {
                 data && data.posts.map(post => <Grid key={post.id} item xs={12} sm={6} md={4}>
